@@ -1,0 +1,104 @@
+﻿
+
+/*All User's are stored in APP_USER table*/
+  CREATE SEQUENCE t_user_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE t_user_id_seq
+  OWNER TO root;
+
+create table T_USER (
+   id BIGINT NOT NULL DEFAULT nextval('t_user_id_seq'::regclass),
+   sso_id VARCHAR(30) NOT NULL,
+   password VARCHAR(100) NOT NULL,
+   first_name VARCHAR(30) NOT NULL,
+   last_name  VARCHAR(30) NOT NULL,
+   email VARCHAR(30) NOT NULL,
+   state VARCHAR(30) NOT NULL,  
+   CONSTRAINT pk_t_user PRIMARY KEY (id),
+   UNIQUE (sso_id)
+);
+ 
+/* USER_PROFILE table contains all possible roles */
+
+
+CREATE SEQUENCE user_profiler_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE user_profiler_id_seq
+  OWNER TO root;
+
+  
+create table USER_PROFILE(
+   id BIGINT NOT NULL DEFAULT nextval('user_profiler_id_seq'::regclass),
+   type VARCHAR(30) NOT NULL,
+   CONSTRAINT PK_USER_PROFILE PRIMARY KEY (id),
+   UNIQUE (type)
+);
+  
+/* JOIN TABLE for MANY-TO-MANY relationship*/ 
+
+CREATE TABLE APP_USER_USER_PROFILE (
+    user_id BIGINT NOT NULL,
+    user_profile_id BIGINT NOT NULL,
+    PRIMARY KEY (user_id, user_profile_id),
+    CONSTRAINT FK_APP_USER FOREIGN KEY (user_id) REFERENCES T_USER (id),
+    CONSTRAINT FK_USER_PROFILE FOREIGN KEY (user_profile_id) REFERENCES USER_PROFILE (id)
+);
+ 
+/* Populate USER_PROFILE Table */
+INSERT INTO USER_PROFILE(type)
+VALUES ('USER');
+ 
+INSERT INTO USER_PROFILE(type)
+VALUES ('ADMIN');
+ 
+INSERT INTO USER_PROFILE(type)
+VALUES ('DBA');
+ 
+/* Populate APP_USER Table */
+INSERT INTO T_USER(sso_id, password, first_name, last_name, email, state)
+VALUES ('bill','abc123', 'Bill','Watcher','bill@xyz.com', 'Active');
+ 
+INSERT INTO T_USER(sso_id, password, first_name, last_name, email, state)
+VALUES ('danny','abc124', 'Danny','Theys','danny@xyz.com', 'Active');
+ 
+INSERT INTO T_USER(sso_id, password, first_name, last_name, email, state)
+VALUES ('sam','abc125', 'Sam','Smith','samy@xyz.com', 'Active');
+ 
+INSERT INTO T_USER(sso_id, password, first_name, last_name, email, state)
+VALUES ('nicole','abc126', 'Nicole','warner','nicloe@xyz.com', 'Active');
+ 
+INSERT INTO T_USER(sso_id, password, first_name, last_name, email, state)
+VALUES ('kenny','abc127', 'Kenny','Roger','kenny@xyz.com', 'Active');
+ 
+/* Populate JOIN Table */
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile  
+  where users.sso_id='bill' and profile.type='USER';
+ 
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile
+  where users.sso_id='danny' and profile.type='USER';
+ 
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile
+  where users.sso_id='sam' and profile.type='ADMIN';
+ 
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile
+  where users.sso_id='nicole' and profile.type='DBA';
+ 
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile  
+  where users.sso_id='kenny' and profile.type='ADMIN';
+ 
+INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
+  SELECT users.id, profile.id FROM t_user users, user_profile profile  
+  where users.sso_id='kenny' and profile.type='DBA';
