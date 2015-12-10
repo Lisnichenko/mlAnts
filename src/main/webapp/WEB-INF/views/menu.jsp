@@ -23,19 +23,19 @@
             -->    
             </li>
             <li class="sub-menu">
-                <a class="active" href="index.html">
+                <a href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Units</span>
                 </a>
             </li>     
             <li class="sub-menu">
-                <a class="active" href="index.html">
+                <a href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Profiles</span>
                 </a>
             </li>
             <li class="sub-menu">
-                <a class="active" href="index.html">
+                <a href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span>Material assets</span>
                 </a>
