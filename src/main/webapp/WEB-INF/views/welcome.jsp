@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="mes"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
         <!-- Bootstrap core CSS -->
@@ -55,18 +56,22 @@
                               </tr>
                               </thead>
                               <tbody>
+                              <c:forEach var="soldier" items="${soldiers}" varStatus="status">    
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td>70</td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
+                                  <c:set var="soldierFormId" value="soldier{status.index}"/>
+                                  <td><a href="soldier.html/#">${soldier.fullName}</a></td>
+                                  <td>${soldier.subdivision}</td>
+                                  
+                                  <td>${soldier.allProfile}</td>
+                                  <td>${soldier.readiness}</td>
+                                  <td>${soldier.status}</td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                       <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                                       <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                   </td>
-                              </tr>
+                              </tr>                              
+                              </c:forEach>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
