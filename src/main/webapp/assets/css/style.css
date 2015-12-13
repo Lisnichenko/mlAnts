@@ -18,7 +18,11 @@ body {
     margin: 0px !important;
     font-size:13px;
 }
-
+text-in-center{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;    
+}
 ul li {
     list-style: none;
 }

@@ -1,4 +1,5 @@
-        <header class="header black-bg">
+<%@taglib uri="http://www.springframework.org/tags" prefix="mes"%>
+<header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
@@ -146,8 +147,11 @@
                 <!--  notification end -->
             </div>
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <span title="English" class="text-in-center"><a lang="en" href="${requestScope['javax.servlet.forward.request_uri']}?locale=en">English</a></span>
+                    <span title="Ukraine"><a lang="ua" href="${requestScope['javax.servlet.forward.request_uri']}?locale=ua">Ukraine</a></span>
+                    <span title="Russian"><a lang="ru" href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru">Russian</a></span>
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html"><mes:message code="header.logout"/></a></li>
             	</ul>
             </div>
         </header>

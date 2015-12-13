@@ -27,8 +27,8 @@
 <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> All Solders
+                          <table id="allSoldier" class="tablesorter table table-striped table-advance table-hover">
+	                  	  	  <h4><i class="fa fa-angle-right"></i> <mes:message code="soldier_list.all_soldiers"/>
                                           <!--</h4>-->
                                           <div class="btn-group pull-right">
 						  <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
@@ -46,10 +46,11 @@
 	                  	  	  <hr>
                               <thead>
                               <tr>
-                                  <th><i class="fa fa-bullhorn"></i> Company</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
-                                  <th><i class="fa fa-bookmark"></i> Profit</th>
-                                  <th><i class=" fa fa-edit"></i> Status</th>
+                                  <th><mes:message code="soldier_list.name"/></th>
+                                  <th><mes:message code="soldier_list.subdivision"/></th>
+                                  <th><mes:message code="soldier_list.profile"/></th>
+                                  <th><mes:message code="soldier_list.is_ready"/></th>
+                                  <th><mes:message code="soldier_list.status"/></th>
                                   <th></th>
                               </tr>
                               </thead>
@@ -58,63 +59,8 @@
                                   <td><a href="basic_table.html#">Company Ltd</a></td>
                                   <td class="hidden-phone">Lorem Ipsum dolor</td>
                                   <td>12000.00$ </td>
+                                  <td>70</td>
                                   <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="basic_table.html#">
-                                          Dashgum co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>17900.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="basic_table.html#">
-                                          Another Co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>14400.00$ </td>
-                                  <td><span class="label label-success label-mini">Paid</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="basic_table.html#">
-                                          Dashgum ext
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>22000.50$ </td>
-                                  <td><span class="label label-success label-mini">Paid</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href="basic_table.html#">Total Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                       <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
@@ -126,6 +72,7 @@
                       </div><!-- /content-panel -->
                   <br>
                   <button type="button" class="btn btn-success">Add Soldier</button>
+                  <br>
                   </div><!-- /col-md-12 -->
 </div><!-- /row mt -->
                 </section>
@@ -151,7 +98,18 @@
 
     <!--script for this page-->
     <script src="assets/js/sparkline-chart.js"></script>    
-    <script src="assets/js/zabuto_calendar.js"></script>	
+    <script src="assets/js/zabuto_calendar.js"></script>
+    
+    <!-- Make table Sortable #allSoldier-->
+    <script src="assets/js/jquery.tablesorter.js"></script>
+    <script>
+    $(document).ready(function() 
+    { 
+        $("#allSoldier").tablesorter(); 
+    } 
+    ); 
+    </script>
+    <!-- Make table Sortable -->
 </body>
 
 </html>
