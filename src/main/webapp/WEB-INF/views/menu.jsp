@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="mes"%>
 <aside>
     <div id="sidebar"  class="nav-collapse ">
         <!-- sidebar menu start-->
@@ -9,125 +10,60 @@
             <li class="sub-menu">
                 <a class="active" href="index.html">
                     <i class="fa fa-dashboard"></i>
-                    <span>Soldiers</span>
+                    <span><mes:message code="soldier_list.all_soldiers"/></span>
                 </a>
-           <!--      <ul class="sub">
-                    <li><a  href="">All</a></li>
-                </ul>
-                <ul class="sub">
-                    <li><a  href="">By office</a></li>
-                </ul>
-                <ul class="sub">
-                    <li><a  href="">By professions</a></li>
-                </ul>
-            -->    
+          
             </li>
             <li class="sub-menu">
                 <a href="index.html">
                     <i class="fa fa-dashboard"></i>
-                    <span>Units</span>
+                    <span><mes:message code="menu.Units"/></span>
                 </a>
             </li>     
             <li class="sub-menu">
                 <a href="index.html">
                     <i class="fa fa-dashboard"></i>
-                    <span>Profiles</span>
+                    <span><mes:message code="menu.Profiles"/></span>
                 </a>
             </li>
             <li class="sub-menu">
                 <a href="index.html">
                     <i class="fa fa-dashboard"></i>
-                    <span>Material assets</span>
+                    <span><mes:message code="menu.Material_assets"/></span>
                 </a>
             </li>     
              <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
-                    <span>Stock</span>
+                    <span><mes:message code="menu.Stock"/></span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="">All property</a></li>
+                    <li><a  href=""><mes:message code="menu.All_property"/></a></li>
                 </ul>
                 <ul class="sub">
-                    <li><a  href="">Remains</a></li>
+                    <li><a  href=""><mes:message code="menu.Given_out"/></a></li>
                 </ul>
                 <ul class="sub">
-                    <li><a  href="">Requests</a></li>
+                    <li><a  href=""><mes:message code="menu.Remains"/></a></li>
+                </ul>
+                <ul class="sub">
+                    <li><a  href=""><mes:message code="menu.Requests"/></a></li>
                 </ul>          
                 <ul class="sub">
-                    <li><a  href="">Repairs</a></li>
+                    <li><a  href=""><mes:message code="menu.Repairs"/></a></li>
                 </ul>
                 <ul class="sub">
-                    <li><a  href="">Cancellation</a></li>
+                    <li><a  href=""><mes:message code="menu.Cancellation"/></a></li>
                 </ul>
                 <ul class="sub">
-                    <li><a  href="">Coming</a></li>
+                    <li><a  href=""><mes:message code="menu.Coming"/></a></li>
                 </ul>
                 <ul class="sub">
-                    <li><a  href="">Notification</a></li>
+                    <li><a  href=""><mes:message code="menu.Notification"/></a></li>
                 </ul>
                 
-            </li>
-<!--
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-cogs"></i>
-                    <span>Profiles</span>
-                </a>
-                 <ul class="sub">
-                    <li><a  href="calendar.html">Calendar</a></li>
-                    <li><a  href="gallery.html">Gallery</a></li>
-                    <li><a  href="todo_list.html">Todo List</a></li>
-                </ul>
             </li>
 
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-book"></i>
-                    <span>Users</span>
-                </a>
-                < ul class="sub">
-                    <li><a  href="blank.html">Users</a></li>
-                    <li><a  href="login.html">Login</a></li>
-                    <li><a  href="lock_screen.html">Lock Screen</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-book"></i>
-                    <span>Settings</span>
-                </a>
-                
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-tasks"></i>
-                    <span>Statistic</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="form_component.html">Form Components</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-th"></i>
-                    <span>Reports</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="basic_table.html">Basic Table</a></li>
-                    <li><a  href="responsive_table.html">Responsive Table</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class=" fa fa-bar-chart-o"></i>
-                    <span>Charts</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="morris.html">Morris</a></li>
-                    <li><a  href="chartjs.html">Chartjs</a></li>
-                </ul>
-            </li>
 -->
         </ul>
         <!-- sidebar menu end-->
