@@ -26,43 +26,7 @@
             <section id="main-content">
                 <section class="wrapper">
 <div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                          <table id="allUnits" class="tablesorter table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> <mes:message code="units_list.all_Units"/>
-                                          </h4>
-	                  	  	  <hr>
-                              <thead>
-                              <tr>
-                                  <th><mes:message code="units_list.name"/></th>
-                                  <th><mes:message code="units_list.mainName"/></th>                                  
-                                  <th><mes:message code="units_list.counts"/></th>
-                                  <th><mes:message code="units_list.countsReal"/></th>
-                                  <th></th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <c:forEach var="unit" items="${units}" varStatus="status">    
-                              <tr>
-                                  <td><a href="units_detail">${unit.name}</a></td>
-                                  <td>${unit.mainUnit.name}</td>
-                                  <td>${unit.count}</td>
-                                  <td>${unit.countReal}</td>
-
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>                              
-                              </c:forEach>
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                  <br>
-                  <button id="unit_add" type="button" class="btn btn-success" >Add Unit</button>
-                  <br>
-                  </div><!-- /col-md-12 -->
+                 Service Required
 </div><!-- /row mt -->
                 </section>
             </section>
@@ -95,10 +59,9 @@
     $(document).ready(function() 
     { 
         $("#allUnits").tablesorter();
-        $("#unit_add").on("click",function(){
-           window.location.href='/units_add';
-        });
-    }            
+
+    }
+            
     ); 
     </script>
     <!-- Make table Sortable -->

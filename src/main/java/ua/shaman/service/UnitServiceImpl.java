@@ -20,12 +20,20 @@ import ua.shaman.model.Unit;
 @Transactional
 public class UnitServiceImpl implements UnitService{
 
+    private List<Unit> units =new ArrayList();
+
+    public UnitServiceImpl() {
+        Unit vzvod = new Unit("Vzvod_5", null,2,2);
+        units.add(vzvod);
+        units.add(new Unit("otdelenie_1",vzvod,5,3));
+        units.add(new Unit("otdelenie_2",vzvod,10,2));
+        units.add(new Unit("otdelenie_3",vzvod,9,2));
+    }
+    
+    
+    
     @Override
     public List<Unit> getAll() {
-        List<Unit> units =new ArrayList();
-        units.add(new Unit("Vzvod_5_otdelenie_1",5));
-        units.add(new Unit("Vzvod_5_otdelenie_2",10));
-        units.add(new Unit("Vzvod_5_otdelenie_3",9));
         return units;
     }
 

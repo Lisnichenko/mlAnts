@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "ua.shaman")
 public class AppConfiguration extends WebMvcConfigurerAdapter {
 	
-    @Bean(name={ "MilitaryAnts" })
+    @Bean( name = "MilitaryAnts" )
     public ViewResolver viewResolver() {
             InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
             viewResolver.setViewClass(JstlView.class);
