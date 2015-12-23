@@ -5,11 +5,17 @@
  */
 package ua.shaman.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ua.shaman.model.Position;
+import ua.shaman.model.Unit;
 import ua.shaman.service.UnitService;
 
 /**
@@ -27,9 +33,23 @@ public class UnitsController {
         return "units_list";
     }
     
-    @RequestMapping(value = { "/units_add" }, method = RequestMethod.GET)
+    @RequestMapping(value = "/units_add", method = RequestMethod.GET)
     public String add(ModelMap model) {
-        model.addAttribute("units", "add list of units");
+        Unit unit = new Unit();
+        List<Position> posotions = new ArrayList();
+        posotions.add(new Position());
+        System.out.println(">> posotions.size = " + posotions.size());
+        unit.setPosition(posotions);
+        
+        model.addAttribute("unit", unit);
+        model.addAttribute("unitItems", unitService.getAll());
+        return "units_add";
+    }
+    
+    @RequestMapping(value = "/units_add", method = RequestMethod.POST)
+    public String saveUnit(Unit unit, BindingResult result,ModelMap model) {
+        model.addAttribute("message", "saveUnitSuccessfull");
+        model.addAttribute("unitName", "DA");
         return "units_add";
     }
     

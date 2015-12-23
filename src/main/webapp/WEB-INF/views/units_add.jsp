@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="mes"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
         <!-- Bootstrap core CSS -->
@@ -25,9 +26,64 @@
         <jsp:include page="menu.jsp" />
             <section id="main-content">
                 <section class="wrapper">
-<div class="row mt">
-                 Service Required
-</div><!-- /row mt -->
+                    <div class="row mt">
+    
+                    <div class="form-panel">
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> New Units</h4>
+                          <c:if test="${not empty message}">
+                          <div class="alert alert-success"><b>Saved!</b> You successfully saved this unit <b>${unitName}</b>.</div>
+                          </c:if>
+                          <form:form class="form-horizontal style-form" method="post" action="units_add" modelAttribute="unit">
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Name</label>
+                              <div class="col-sm-10">
+                                  <form:input path="name" id="nameInput" class="form-control"/>
+                                  <form:errors path="name" cssClass="alert alert-danger" />
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Main Unit</label>
+                              <div class="col-sm-10">
+                                  <form:select path="mainUnit"  class="form-control">
+                                      <form:option label="Select main unit" value="-"/>
+                                      <c:forEach var="unitID" items="${unitItems}" varStatus="status_unit"> 
+                                        <form:option label="${unitID.name}" value="${status_unit.index}"/>
+                                      </c:forEach>
+                                  </form:select>
+                              </div>
+                          </div>
+                         <h5 class="mb"><i class="fa fa-angle-right"></i> Positions
+                            <div class="form-group">
+                                <div class="btn-group pull-right">
+                                    <button type="button" id="add_positions" class="btn btn-theme04">More positions</button>
+                                </div>
+                            </div>
+                         </h5>
+                         <div class ="add_new_position"/>
+                         <div class="form-group">
+                             <c:forEach var="position" items="${unit.position}" varStatus="status_pos">
+                                 <c:set var="position_counter" value="${status_pos.index}"/>
+                              <label class="col-sm-2 control-label">Position Name</label>
+                              <div class="col-sm-3">
+                                  <form:input path="position[${status_pos.index}].name" id="positionNameInput" class="form-control"/>
+                                  <%--<form:errors path="position[${status_pos.index}].name" cssClass="alert alert-danger" />--%>
+                              </div>
+                              <label class="col-sm-2 control-label">Position Count</label>
+                              <div class="col-sm-3">
+                                  <form:input path="position[${status_pos.index}].count" id="positionCountInput" class="form-control"/>
+                                  <%--<form:errors path="position[${status_pos.index}].count" cssClass="alert alert-danger" />--%>
+                              </div>
+
+                             </c:forEach>
+                          </div>
+                        
+                         <input type="hidden" id = "position_counts" value="${position_counter}">
+                         <button id="unit_save" type="submit" class="btn btn-success" >Save</button>
+                         
+                      </form:form>
+                    </div>
+                 
+                    </div><!-- /row mt -->
                 </section>
             </section>
 
@@ -53,18 +109,24 @@
     <script src="assets/js/sparkline-chart.js"></script>    
     <script src="assets/js/zabuto_calendar.js"></script>
     
-    <!-- Make table Sortable #allUnits-->
-    <script src="assets/js/jquery.tablesorter.js"></script>
     <script>
-    $(document).ready(function() 
-    { 
-        $("#allUnits").tablesorter();
-
-    }
-            
-    ); 
+        $(document).ready(function(){
+            $("#add_positions").click(function(){
+                var position_counts = parseInt($("#position_counts").val())+1 ;
+                var html_position = "<div class=\"form-group\">"+
+                        "<label class=\"col-sm-2 control-label\">Position Name</label><div class=\"col-sm-3\">"+
+                        "<input id=\"positionNameInput\" name=\"position[" + position_counts + 
+                        "].name\" class=\"form-control\" value=\"\" type=\"text\">"+
+                        "</div><label class=\"col-sm-2 control-label\">Position Count</label><div class=\"col-sm-3\">"+
+                        "<input id=\"positionCountInput\" name=\"position[" + position_counts + 
+                        "].count\" class=\"form-control\" value=\"0\" type=\"text\">"+
+                        "</div></div>";
+                $(".add_new_position").prepend(html_position);
+                $("#position_counts").val(position_counts);
+                $("body").getNiceScroll().resize();
+            });
+        });
     </script>
-    <!-- Make table Sortable -->
 </body>
 
 </html>
