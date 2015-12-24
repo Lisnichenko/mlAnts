@@ -44,6 +44,11 @@ public class Position {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return "Position{" + "Id=" + Id + ", name=" + name + ", count=" + count + '}';
+    }
     
     
     

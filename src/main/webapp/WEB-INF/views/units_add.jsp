@@ -44,7 +44,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Main Unit</label>
                               <div class="col-sm-10">
-                                  <form:select path="mainUnit"  class="form-control">
+                                  <form:select path="mainUnitId"  class="form-control">
                                       <form:option label="Select main unit" value="-"/>
                                       <c:forEach var="unitID" items="${unitItems}" varStatus="status_unit"> 
                                         <form:option label="${unitID.name}" value="${status_unit.index}"/>

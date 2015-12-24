@@ -17,5 +17,5 @@ public interface UnitService {
     List<Unit> getAll();
     void add(Unit unit);
     void edit(Unit unit);
-    List<Soldiers> getSoldiersIn(Long unitId);
+    Unit getUnitById(Long unitId);
 }

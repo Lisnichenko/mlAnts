@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.shaman.model.Position;
 import ua.shaman.model.Soldiers;
 import ua.shaman.model.Unit;
 
@@ -39,7 +40,17 @@ public class UnitServiceImpl implements UnitService{
 
     @Override
     public void add(Unit unit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Unit mainUnit = getUnitById(unit.getMainUnitId());
+        unit.setMainUnit(mainUnit);
+        
+        int totalPosition = 0;
+        for(Position pos : unit.getPosition()){
+            totalPosition += pos.getCount();
+        }
+        
+        unit.setCount(totalPosition);
+        units.add(unit);
     }
 
     @Override
@@ -48,8 +59,10 @@ public class UnitServiceImpl implements UnitService{
     }
 
     @Override
-    public List<Soldiers> getSoldiersIn(Long unitId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Unit getUnitById(Long unitId) {
+        return units.get(unitId.intValue());
     }
+
+
     
 }

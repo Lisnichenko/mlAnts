@@ -38,7 +38,6 @@ public class UnitsController {
         Unit unit = new Unit();
         List<Position> posotions = new ArrayList();
         posotions.add(new Position());
-        System.out.println(">> posotions.size = " + posotions.size());
         unit.setPosition(posotions);
         
         model.addAttribute("unit", unit);
@@ -48,9 +47,11 @@ public class UnitsController {
     
     @RequestMapping(value = "/units_add", method = RequestMethod.POST)
     public String saveUnit(Unit unit, BindingResult result,ModelMap model) {
+        System.out.println(">> added unit is " + unit);
+        unitService.add(unit);
         model.addAttribute("message", "saveUnitSuccessfull");
         model.addAttribute("unitName", "DA");
-        return "units_add";
+        return "redirect:units_list";
     }
     
     @RequestMapping(value = { "/units_edit" }, method = RequestMethod.GET)

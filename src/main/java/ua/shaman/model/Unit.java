@@ -20,20 +20,15 @@ public class Unit {
     
     private int count;
     private int countReal;
+    //used only for select in UI Form
+    private Long mainUnitId;
     
     private List<Position> position;
 
     public Unit() {
     }
 
-    public Unit(String name, Unit mainUnit, int count, int countReal, List<Position> position) {
-        this.name = name;
-        this.mainUnit = mainUnit;
-        this.count = count;
-        this.countReal = countReal;
-        this.position = position;
-    }
-
+   
     public Unit(String name, Unit mainUnit, int count, int countReal) {
         this.name = name;
         this.mainUnit = mainUnit;
@@ -77,6 +72,14 @@ public class Unit {
         this.countReal = countReal;
     }
 
+    public Long getMainUnitId() {
+        return mainUnitId;
+    }
+
+    public void setMainUnitId(Long mainUnitId) {
+        this.mainUnitId = mainUnitId;
+    }
+
     public List<Position> getPosition() {
         return position;
     }
@@ -84,6 +87,12 @@ public class Unit {
     public void setPosition(List<Position> position) {
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Unit{" + "Id=" + Id + ", name=" + name + ", mainUnit=" + mainUnit + ", count=" + count + ", countReal=" + countReal + ", mainUnitId=" + mainUnitId + ", position=" + position + '}';
+    }
+
     
     
     
