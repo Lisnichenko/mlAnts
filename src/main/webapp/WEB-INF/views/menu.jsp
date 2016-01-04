@@ -21,7 +21,7 @@
                 </a>
             </li>     
             <li class="sub-menu">
-                <a href="">
+                <a href="profiles_list">
                     <i class="fa fa-dashboard"></i>
                     <span><mes:message code="menu.Profiles"/></span>
                 </a>
