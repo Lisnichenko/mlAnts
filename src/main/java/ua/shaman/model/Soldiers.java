@@ -95,4 +95,8 @@ public class Soldiers {
         }
         return prof.toString();
     }
+
+    public void setPosition(List<Position> positions) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

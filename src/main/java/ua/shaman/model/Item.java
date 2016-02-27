@@ -11,20 +11,20 @@ package ua.shaman.model;
  */
 public class Item {
     
-    private Long Id;
+    private int Id;
     private String name;
     private int count;
 
     public Item() {
     }
 
-    public Item(Long Id, String name, int count) {
+    public Item(int Id, String name, int count) {
         this.Id = Id;
         this.name = name;
         this.count = count;
     }
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 

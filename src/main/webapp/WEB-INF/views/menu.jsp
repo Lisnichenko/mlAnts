@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="">
+                <a href="items_list">
                     <i class="fa fa-dashboard"></i>
                     <span><mes:message code="menu.Material_assets"/></span>
                 </a>
