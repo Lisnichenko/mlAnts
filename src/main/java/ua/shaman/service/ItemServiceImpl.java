@@ -23,8 +23,8 @@ public class ItemServiceImpl implements ItemService{
 
     public ItemServiceImpl() {
         items.add(new Item(1,"AKC-74",15));
-        items.add(new Item(1,"СВД",5));
-        items.add(new Item(1,"ПМ",20));
+        items.add(new Item(2,"СВД",5));
+        items.add(new Item(3,"ПМ",20));
     }
     
     

@@ -24,11 +24,13 @@ public class Item {
         this.count = count;
     }
 
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
     public int getId() {
         return Id;
     }
-
-
     public String getName() {
         return name;
     }

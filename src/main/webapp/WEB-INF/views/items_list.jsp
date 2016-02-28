@@ -40,11 +40,11 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <c:forEach var="item" items="${items}" varStatus="status">    
+                            <c:forEach var="item" items="${items}" varStatus="status">    
                               <tr>
                                   <td><a href="items_detail">${item.name}</a></td>                                
                                   <td>${item.count}</td>
-
+                            
 
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
