@@ -29,12 +29,12 @@
             <section id="main-content">
                 <section class="wrapper">
                     <div class="row mt">
-                        ADD SOLDIER
+                        ADD PROFILES
     <div class="project-wrapper">
 		                    <div class="project">
 		                        <div class="photo-wrapper">
 		                            <div class="photo">
-		                            	<a class="fancybox" href="assets/img/portfolio/port06.jpg"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt=""></a>
+		                            	<a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="assets/img/portfolio/port05.jpg" alt=""></a>
 		                            </div>
 		                            <div class="overlay"></div>
 		                        </div>

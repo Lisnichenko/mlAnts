@@ -17,7 +17,7 @@
 
         <script src="assets/js/chart-master/Chart.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title><mes:message code="soldier_list.title"/></title>
+	<title><mes:message code="items_list.title"/></title>
 </head>
 <body>
     <section id="container" >
@@ -28,26 +28,23 @@
 <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table id="allProfiles" class="tablesorter table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> <mes:message code="profiles_list.all_Profiles"/>
+                          <table id="allitems" class="tablesorter table table-striped table-advance table-hover">
+	                  	  	  <h4><i class="fa fa-angle-right"></i> <mes:message code="items_list.all_items"/>
                                           </h4>
 	                  	  	  <hr>
                               <thead>
                               <tr>
-                                  <th><mes:message code="profiles_list.name"/></th>
-                                  <th><mes:message code="profiles_list.descriptions"/></th>                                  
-                                  <th><mes:message code="profiles_list.items"/></th>
-                                  <th><mes:message code="profiles_list.count_people"/></th>
+                                  <th><mes:message code="items_list.name"/></th>                           
+                                  <th><mes:message code="items_list.count"/></th>
                                   <th></th>
                               </tr>
                               </thead>
                               <tbody>
-                              <c:forEach var="profile" items="${profiles}" varStatus="status">    
+                            <c:forEach var="item" items="${items}" varStatus="status">    
                               <tr>
-                                  <td><a href="profiles_detail">${profile.name}</a></td>
-                                  <td>${profile.descriptions}</td>
-                                  <td>${profile.items}</td>
-                                  <td>${profile.count_people}</td>
+                                  <td><a href="items_detail">${item.name}</a></td>                                
+                                  <td>${item.count}</td>
+                            
 
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
@@ -60,7 +57,7 @@
                           </table>
                       </div><!-- /content-panel -->
                   <br>
-                  <button id="profiles_add" type="button" class="btn btn-success" >Add Profile</button>
+                  <button id="item_add" type="button" class="btn btn-success" >Add Item</button>
                   <br>
                   </div><!-- /col-md-12 -->
 </div><!-- /row mt -->
@@ -89,14 +86,14 @@
     <script src="assets/js/sparkline-chart.js"></script>    
     <script src="assets/js/zabuto_calendar.js"></script>
     
-    <!-- Make table Sortable #allUnits-->
+    <!-- Make table Sortable #allitems-->
     <script src="assets/js/jquery.tablesorter.js"></script>
     <script>
     $(document).ready(function() 
     { 
-        $("#allProfiles").tablesorter();
-        $("#profiles_add").on("click",function(){
-           window.location.href='/profiles_add';
+        $("#allitems").tablesorter();
+        $("#item_add").on("click",function(){
+           window.location.href='/items_add';
         });
     }            
     ); 

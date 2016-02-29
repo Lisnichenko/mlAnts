@@ -27,7 +27,7 @@ public class ProfileServiceImpl implements ProfileService{
     private List<Item> items = new ArrayList();
 
     public ProfileServiceImpl() {
-        Item item = new Item(1L,"AKC-74",10);        
+        Item item = new Item(1,"AKC-74",10);        
         items.add(item);
         
         Profile spiper = new Profile("Sniper", "Sniper", items, 1);

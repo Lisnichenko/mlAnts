@@ -19,4 +19,6 @@ public interface SoldierService {
     Soldiers getSoldierById(Long Id);
     void saveSoldiers(Soldiers soldier);
     void deleteSoldiers(Soldiers soldier);
+
+    public Object getAll();
 }

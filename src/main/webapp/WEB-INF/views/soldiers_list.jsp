@@ -76,7 +76,7 @@
                           </table>
                       </div><!-- /content-panel -->
                   <br>
-                  <button type="button" class="btn btn-success">Add Soldier</button>
+                  <button id="soldiers_add" type="button" class="btn btn-success">Add Soldier</button>
                   <br>
                   </div><!-- /col-md-12 -->
 </div><!-- /row mt -->
@@ -111,6 +111,9 @@
     $(document).ready(function() 
     { 
         $("#allSoldier").tablesorter(); 
+        $("#soldiers_add").on("click",function(){
+           window.location.href='/soldiers_add';
+        });
     } 
     ); 
     </script>
@@ -118,3 +121,4 @@
 </body>
 
 </html>
+ 

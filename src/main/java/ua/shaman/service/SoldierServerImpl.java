@@ -51,5 +51,11 @@ public class SoldierServerImpl implements SoldierService{
     public void deleteSoldiers(Soldiers soldier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Object getAll() {
+        return null;
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -43,6 +43,12 @@ public class HelloWorldController {
 		model.addAttribute("user", getPrincipal());
 		return "accessDenied";
 	}
+        
+        	@RequestMapping(value = "/buttons", method = RequestMethod.GET)
+	public String buttons(ModelMap model) {
+		model.addAttribute("user", getPrincipal());
+		return "buttons";
+	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
