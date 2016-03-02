@@ -22,7 +22,7 @@ public class HelloWorldController {
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
                 
-		model.addAttribute("soldiers", soldierService.getAllSoldiers());
+		model.addAttribute("soldiers", soldierService.getAll());
 		return "welcome";
 	}
 

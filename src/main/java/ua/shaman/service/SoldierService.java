@@ -15,10 +15,8 @@ import ua.shaman.model.Soldiers;
  * @author andriy
  */
 public interface SoldierService {
-    List<Soldiers> getAllSoldiers();
+    List<Soldiers> getAll();
     Soldiers getSoldierById(Long Id);
     void saveSoldiers(Soldiers soldier);
     void deleteSoldiers(Soldiers soldier);
-
-    public Object getAll();
-}
+ }

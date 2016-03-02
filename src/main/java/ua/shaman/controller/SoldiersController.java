@@ -27,7 +27,7 @@ public class SoldiersController {
 	
     @RequestMapping(value = { "/soldiers_list" }, method = RequestMethod.GET)
     public String list(ModelMap model) {
-        model.addAttribute("soldiers", soldierService.getAllSoldiers());
+        model.addAttribute("soldiers", soldierService.getAll());
         return "soldiers_list";
     }
     
