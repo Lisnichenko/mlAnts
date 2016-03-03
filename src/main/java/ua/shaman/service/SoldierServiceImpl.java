@@ -17,10 +17,10 @@ import ua.shaman.model.Soldiers;
  */
 @Service("soldierService")
 @Transactional
-public class SoldierServerImpl implements SoldierService{
+public class SoldierServiceImpl implements SoldierService{
 
     @Override
-    public List<Soldiers> getAllSoldiers() {
+    public List<Soldiers> getAll() {
         List<Soldiers> soldiers = new ArrayList();
         List<String> IvanProfile = new ArrayList();
         IvanProfile.add("Povar");
@@ -52,10 +52,6 @@ public class SoldierServerImpl implements SoldierService{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Object getAll() {
-        return null;
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
     
 }
