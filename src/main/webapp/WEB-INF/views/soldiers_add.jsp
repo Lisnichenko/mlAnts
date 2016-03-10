@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="mes"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
         <!-- Bootstrap core CSS -->
@@ -21,33 +21,24 @@
 	<title><mes:message code="soldier_list.title"/></title>
 </head>
 <body>
-
-
     <section id="container" >
- <jsp:include page="header.jsp" />
+        <jsp:include page="header.jsp" />
         <jsp:include page="menu.jsp" />
             <section id="main-content">
                 <section class="wrapper">
                     <div class="row mt">
-                        ADD SOLDIER
-    <div class="project-wrapper">
-		                    <div class="project">
-		                        <div class="photo-wrapper">
-		                            <div class="photo">
-		                            	<a class="fancybox" href="assets/img/portfolio/port06.jpg"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt=""></a>
-		                            </div>
-		                            <div class="overlay"></div>
-		                        </div>
-		                    </div>
-		                </div>
-                    </div>
+    
+                   <div class="btn-group pull-right">
+                                    <button type="button" id="add_positions" class="btn btn-theme04">More positions</button>
+                                </div>
+                 
+                    </div><!-- /row mt -->
                 </section>
             </section>
 
         <jsp:include page="footer.jsp" />  
     </section>
-    
-    <!-- js placed at the end of the document so the pages load faster -->
+       <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-1.8.3.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -62,8 +53,29 @@
     
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+    <!--script for this page-->
+    <script src="assets/js/sparkline-chart.js"></script>    
+    <script src="assets/js/zabuto_calendar.js"></script>
     
-    
-    </body>
-    
+    <script>
+        $(document).ready(function(){
+            $("#add_positions").click(function(){
+                var position_counts = parseInt($("#position_counts").val())+1 ;
+                var html_position = "<div class=\"form-group\">"+
+                        "<label class=\"col-sm-2 control-label\">Position Name</label><div class=\"col-sm-3\">"+
+                        "<input id=\"positionNameInput\" name=\"position[" + position_counts + 
+                        "].name\" class=\"form-control\" value=\"\" type=\"text\">"+
+                        "</div><label class=\"col-sm-2 control-label\">Position Count</label><div class=\"col-sm-3\">"+
+                        "<input id=\"positionCountInput\" name=\"position[" + position_counts + 
+                        "].count\" class=\"form-control\" value=\"0\" type=\"text\">"+
+                        "</div></div>";
+                $(".add_new_position").prepend(html_position);
+                $("#position_counts").val(position_counts);
+                $("body").getNiceScroll().resize();
+            });
+        });
+    </script>
+</body>
+
 </html>
